@@ -1,4 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Animais } from '../animais';
 
 @Component({
   selector: 'app-lista-animais',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAnimaisComponent implements OnInit {
 
-  constructor() { }
+  animais!: Animais;
+
+  constructor(
+    private ActivatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.ActivatedRoute.params.subscribe(param => {
+      this.animais = this.ActivatedRoute.snapshot.data['animais'];
+    });
   }
-
 }
