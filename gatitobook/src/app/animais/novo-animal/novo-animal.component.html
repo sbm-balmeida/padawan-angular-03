@@ -15,7 +15,7 @@
           #fileInput
           type="file"
           hidden
-          formControlName="=file"
+          formControlName="file"
           accept="image/*"
           (change)="gravaArquivo($event.target)"
         >
@@ -48,16 +48,16 @@
       <div class="form-group">
         <label class="text-muted">
           Permite comentário
-          <input type="checkbox" formControlName="allowCommets">
+          <input type="checkbox" formControlName="allowComments">
         </label>
       </div>
 
       <div *ngIf="!percentualConcluido; else uploaddiv">
         <button
-          [disable]="formularioAnimal.invalid"
+          [disabled]="formularioAnimal.invalid"
           type="submit"
           class="btn btn-primary btn-block"
-        ></button>
+        >Enviar</button>
 
         <a
           routeLink="['animais']"
